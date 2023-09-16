@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      * {
+        font-size: 1.2em;
+      }
+      h1:hover {
+        color: red;
+      }
+      a:active {
+        background-color: blue;
+      }
+      input:focus {
+        background-color: orange;
+      }
+      .stripes div:nth-child(2n + 1) {
+        color: whitesmoke;
+        background-color: navy;
+      }
+      .stripes div:nth-child(2n) {
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="pseudo-1">
+      <h1>h1 태그입니다</h1>
+      <a href="">a 태그입니다</a>
+      <input type="text" placeholder="input입니다" />
+    </div>
+    <div class="pseudo-2 stripes">
+      <div>navy</div>
+      <div>yellow</div>
+      <div>navy</div>
+      <div>yellow</div>
+      <div>navy</div>
+      <div>yellow</div>
+      <div>navy</div>
+      <div>yellow</div>
+    </div>
+  </body>
+</html>

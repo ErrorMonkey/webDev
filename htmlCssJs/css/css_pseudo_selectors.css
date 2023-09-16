@@ -1,0 +1,49 @@
+* {
+  font-size: 1.5em;
+}
+
+.div-hover:hover {
+  background-color: crimson;
+}
+
+.div-active:active {
+  background-color: blueviolet;
+  color: whitesmoke;
+}
+
+.input-focus:focus {
+  background-color: chartreuse;
+}
+
+a:visited {
+  color: teal;
+}
+
+/* fruists 하위 요소 중 span 중 첫 번째를 선택하겠다 처럼 보이지만 */
+/* fruists 하위 요소 중 첫 번째 자식이 span이라면 선택하겠다는 뜻임 */
+.fruits span:first-child {
+  color: red;
+}
+
+.fruits p:last-child {
+  color: red;
+}
+.fruits h3:last-child {
+  color: red;
+}
+
+.fruits span:nth-child(2) {
+  color: olive;
+}
+
+.fruits-2 span:nth-child(2n + 1) {
+  color: blue;
+}
+
+.fruits-2 span:not(.wm) {
+  background-color: aqua;
+}
+
+.fruits *:not(span) {
+  background-color: aqua;
+}

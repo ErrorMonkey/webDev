@@ -28,7 +28,23 @@ div {
   color: red;
 }
 
-/* 테스트 */
-div span#list_1 {
-  color: whitesmoke;
+/* 하위 선택자 */
+div .apple {
+  color: #920000;
+}
+
+/* 자식 선택자 */
+div > .apple {
+  color: #920000;
+}
+
+/* 인접 형제 선택자 */
+h1 + ul {
+  font-size: 20px;
+  color: blue;
+}
+
+/* 일반 형제 선택자 */
+h1 ~ ul {
+  font-size: 20px;
 }
