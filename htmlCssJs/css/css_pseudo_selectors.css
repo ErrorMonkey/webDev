@@ -1,5 +1,5 @@
 * {
-  font-size: 1.5em;
+  font-size: 1.1em;
 }
 
 .div-hover:hover {
@@ -46,4 +46,22 @@ a:visited {
 
 .fruits *:not(span) {
   background-color: aqua;
+}
+
+/* ::before */
+div.before-el::before {
+  content: "앞!";
+}
+
+/* ::after */
+div.after-el::after {
+  content: "뒤!";
+  color: whitesmoke;
+  font-size: 16px;
+  background-color: rebeccapurple;
+  border-radius: 20%;
+}
+
+input[name="id"] {
+  background-color: orange;
 }
