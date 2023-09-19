@@ -1,0 +1,26 @@
+img {
+  width: 200px;
+}
+
+.img-skew:hover {
+  transform: skew(20deg, -5deg);
+}
+
+.img-rotate:hover {
+  transform: rotate(-15deg);
+}
+
+.img-scale:hover {
+  transform: scale(1.1);
+  transition: 0.5s;
+}
+
+.img-translate:hover {
+  transform: translate(10px, 10px);
+}
+
+.img-transition:active {
+  width: 500px;
+  transform: perspective(100px) rotateX(20deg);
+  transition: transform 5s;
+}
