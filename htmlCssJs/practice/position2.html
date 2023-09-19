@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        position: relative;
+        left: 200px;
+        top: 50px;
+      }
+      .eye-1 {
+        position: absolute;
+        border-radius: 50%;
+        background-color: white;
+        left: 20px;
+        top: 20px;
+        width: 40px;
+        height: 40px;
+      }
+      .eye-2 {
+        position: absolute;
+        border-radius: 50%;
+        background-color: black;
+        left: 0px;
+        top: 10px;
+        width: 20px;
+        height: 20px;
+      }
+      .head {
+        background-color: #05b953;
+      }
+      .body {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        /* background-color: #ffc200; */
+        box-shadow: 0 2px 10px #4e472f54;
+      }
+      .body-1 {
+        background-color: #db7916;
+        left: 70px;
+        top: 50px;
+      }
+      .body-2 {
+        background-color: #f2ab07;
+        left: 140px;
+        top: 90px;
+      }
+      .body-3 {
+        background-color: #ebd905;
+        left: 200px;
+        top: 80px;
+      }
+      img {
+        display: block;
+        position: absolute;
+        top: 100px;
+        left: 50px;
+        width: 400px;
+      }
+      .body-4 {
+        background-color: #05b953;
+        left: 270px;
+        top: 90px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="body head">
+        <div class="eye-1">
+          <div class="eye-2"></div>
+        </div>
+      </div>
+      <div class="body body-1"></div>
+      <div class="body body-2"></div>
+      <div class="body body-3"></div>
+      <img src="../img/grass.png" alt="" />
+      <div class="body body-4"></div>
+    </div>
+  </body>
+</html>

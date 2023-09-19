@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>position 연습</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      .container {
+        position: absolute;
+        background-color: grey;
+        width: 500px;
+        height: 500px;
+      }
+      .item {
+        box-shadow: 0 0 10px #fff;
+        color: whitesmoke;
+        background-color: black;
+        width: 100px;
+        height: 100px;
+      }
+      .item-1 {
+        position: relative;
+        left: 50px;
+        top: 30px;
+      }
+      .item-2 {
+        position: absolute;
+        right: 30px;
+        bottom: 100px;
+      }
+      .item-3 {
+        position: fixed;
+        right: 100px;
+        top: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="item item-1">item1</div>
+      <div class="item item-2">item2</div>
+      <div class="item item-3">item3</div>
+    </div>
+  </body>
+</html>
