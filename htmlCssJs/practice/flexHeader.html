@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>flexHeader</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        font-size: 20px;
+        font-weight: 700;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      .banner-1 {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        background-color: antiquewhite;
+      }
+      .banner-1 .logo {
+        margin-left: 15px;
+      }
+      .banner-1 .menu-group {
+        display: flex;
+        margin-right: 15px;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .banner-2 {
+        margin-top: 10px;
+        width: 100%;
+        background-color: antiquewhite;
+      }
+      .banner-2 .menu-group {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 15px;
+        align-items: center;
+      }
+
+      .banner-3 {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 10px;
+        width: 100%;
+        background-color: antiquewhite;
+      }
+      .banner-3 .menu-group {
+        display: flex;
+        gap: 15px;
+      }
+      .banner-3 > p {
+        margin: 0 15px;
+      }
+
+      .notice {
+        width: 100%;
+        margin-top: 25px;
+        background-color: aquamarine;
+        text-align: center;
+      }
+
+      .banner-4 {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 10px;
+        width: 100%;
+        background-color: antiquewhite;
+      }
+      .banner-4 .menu-group {
+        margin-left: 15px;
+        display: flex;
+        gap: 15px;
+      }
+      .banner-4 .login-group {
+        margin-right: 15px;
+        display: flex;
+        gap: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 style="text-align: center">Flex를 이용해 여러 종류의 Header 만들기</h1>
+    <nav class="banner-1">
+      <p class="logo">Logo</p>
+      <div class="menu-group">
+        <p class="menu-item">menu1</p>
+        <p class="menu-item">menu2</p>
+        <p class="menu-item">menu3</p>
+      </div>
+    </nav>
+    <nav class="banner-2">
+      <div class="menu-group">
+        <p class="menu-item">menu1</p>
+        <p class="menu-item">menu2</p>
+        <p class="menu-item">menu3</p>
+      </div>
+    </nav>
+    <nav class="banner-3">
+      <p class="logo">Logo</p>
+      <div class="menu-group">
+        <p class="menu-item">menu1</p>
+        <p class="menu-item">menu2</p>
+        <p class="menu-item">menu3</p>
+      </div>
+      <p class="login">Login</p>
+    </nav>
+    <div class="notice">header 4는 선택</div>
+    <nav class="banner-4">
+      <div class="menu-group">
+        <p class="logo">Logo</p>
+        <p class="menu-item">menu1</p>
+        <p class="menu-item">menu2</p>
+        <p class="menu-item">menu3</p>
+      </div>
+      <div class="login-group">
+        <p class="logo">Login</p>
+        <p class="logo">Signup</p>
+      </div>
+    </nav>
+  </body>
+</html>

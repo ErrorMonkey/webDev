@@ -1,0 +1,51 @@
+/* div {
+  display: block;
+} */
+
+/* inline : width, height를 적용할 수 없다. */
+/* margin은 top, bottom이 적용되지 않는다. */
+.inline {
+  width: 10000px;
+  height: 10000px;
+  margin: 100px;
+  padding: 20px;
+  background-color: greenyellow;
+}
+
+/* block 요소는 width 전체를 차지해서 세로 정렬이 됨 */
+.box {
+  background-color: darkkhaki;
+  width: 100px;
+  height: 100px;
+  color: white;
+  margin: 5px;
+  text-align: center;
+  line-height: clac(50% - (100px/2));
+}
+
+/* inline-block : inline과 block의 특징을 합쳐놓음
+(inline: content의 크기만큼만 공간을 차지
+block : width, height, margin 정상 작동 */
+/* inline block은 컨텐츠 크기만 차지해서 세로 배열이 됨 */
+.d-inline-block {
+  display: inline-block;
+  padding: 20px;
+  margin: 20px;
+  background-color: green;
+}
+
+/* flex : 자식 요소(하위 요소 아님 주의)를 inline-block으로 만듦 */
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.container-2 {
+  display: flex;
+  background-color: beige;
+  width: 400px;
+  height: 400px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
