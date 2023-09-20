@@ -10,122 +10,75 @@
         font-size: 20px;
         font-weight: 700;
       }
+      h1 {
+        text-align: center;
+      }
       body {
         margin: 0;
         padding: 0;
       }
-      .banner-1 {
+      header {
         display: flex;
-        flex-wrap: wrap;
         width: 100%;
+        background-color: rebeccapurple;
+        color: whitesmoke;
+        align-items: center;
+        margin-top: 1em;
+        padding: 0 0.5em;
+        height: 2em;
         justify-content: space-between;
-        align-items: center;
-        background-color: antiquewhite;
       }
-      .banner-1 .logo {
-        margin-left: 15px;
-      }
-      .banner-1 .menu-group {
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
         display: flex;
-        margin-right: 15px;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-      }
-
-      .banner-2 {
-        margin-top: 10px;
-        width: 100%;
-        background-color: antiquewhite;
-      }
-      .banner-2 .menu-group {
-        display: flex;
+        gap: 0.5em;
         justify-content: space-between;
-        margin: 0 15px;
-        align-items: center;
       }
-
-      .banner-3 {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-top: 10px;
+      .header2 ul {
         width: 100%;
-        background-color: antiquewhite;
-      }
-      .banner-3 .menu-group {
-        display: flex;
-        gap: 15px;
-      }
-      .banner-3 > p {
-        margin: 0 15px;
-      }
-
-      .notice {
-        width: 100%;
-        margin-top: 25px;
-        background-color: aquamarine;
-        text-align: center;
-      }
-
-      .banner-4 {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-top: 10px;
-        width: 100%;
-        background-color: antiquewhite;
-      }
-      .banner-4 .menu-group {
-        margin-left: 15px;
-        display: flex;
-        gap: 15px;
-      }
-      .banner-4 .login-group {
-        margin-right: 15px;
-        display: flex;
-        gap: 15px;
       }
     </style>
   </head>
   <body>
-    <h1 style="text-align: center">Flex를 이용해 여러 종류의 Header 만들기</h1>
-    <nav class="banner-1">
-      <p class="logo">Logo</p>
-      <div class="menu-group">
-        <p class="menu-item">menu1</p>
-        <p class="menu-item">menu2</p>
-        <p class="menu-item">menu3</p>
-      </div>
-    </nav>
-    <nav class="banner-2">
-      <div class="menu-group">
-        <p class="menu-item">menu1</p>
-        <p class="menu-item">menu2</p>
-        <p class="menu-item">menu3</p>
-      </div>
-    </nav>
-    <nav class="banner-3">
-      <p class="logo">Logo</p>
-      <div class="menu-group">
-        <p class="menu-item">menu1</p>
-        <p class="menu-item">menu2</p>
-        <p class="menu-item">menu3</p>
-      </div>
-      <p class="login">Login</p>
-    </nav>
-    <div class="notice">header 4는 선택</div>
-    <nav class="banner-4">
-      <div class="menu-group">
-        <p class="logo">Logo</p>
-        <p class="menu-item">menu1</p>
-        <p class="menu-item">menu2</p>
-        <p class="menu-item">menu3</p>
-      </div>
-      <div class="login-group">
-        <p class="logo">Login</p>
-        <p class="logo">Signup</p>
-      </div>
-    </nav>
+    <h1>Flex로 헤더 만들기</h1>
+    <header class="header1">
+      <span>Logo</span>
+      <ul>
+        <li>Menu1</li>
+        <li>Menu2</li>
+        <li>Menu3</li>
+      </ul>
+    </header>
+    <header class="header2">
+      <ul>
+        <li>Menu1</li>
+        <li>Menu2</li>
+        <li>Menu3</li>
+      </ul>
+    </header>
+    <header class="header3">
+      <span>Logo</span>
+      <ul>
+        <li>Menu1</li>
+        <li>Menu2</li>
+        <li>Menu3</li>
+      </ul>
+      <span>Login</span>
+    </header>
+    <h1>header4는 선택</h1>
+    <header class="header4">
+      <ul>
+        <span>Logo</span>
+        <li>Menu1</li>
+        <li>Menu2</li>
+        <li>Menu3</li>
+      </ul>
+      <ul>
+        <span>Login</span>
+        <span>Signup</span>
+      </ul>
+    </header>
   </body>
 </html>
