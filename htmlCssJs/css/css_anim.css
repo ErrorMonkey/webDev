@@ -1,0 +1,92 @@
+body {
+  margin: 10px;
+  width: 100%;
+  height: 100%;
+}
+.box {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+}
+
+.box-1 {
+  background-color: crimson;
+  /* animation: name duration timing-function delay iteration-count direction
+    fill-mode; */
+  animation: movetoright 4s ease-in-out infinite alternate;
+}
+.box-2 {
+  background-color: rebeccapurple;
+  animation: jumpJump 2s ease-out infinite alternate;
+  bottom: 0px;
+}
+.box-3 {
+  background-color: olivedrab;
+  animation: rotate 3s ease-in-out 6;
+  border-radius: 50%;
+}
+
+@keyframes movetoright {
+  from {
+    left: 0%;
+  }
+
+  to {
+    left: 90%;
+  }
+}
+
+@keyframes jumpJump {
+  0% {
+    left: 0%;
+    bottom: 0em;
+  }
+  50% {
+    left: 12.5%;
+    bottom: 20em;
+  }
+  100% {
+    left: 25%;
+    bottom: 0em;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    left: 0%;
+    top: 0%;
+  }
+  25% {
+    left: 90%;
+    top: 0%;
+  }
+  50% {
+    left: 90%;
+    top: 90%;
+  }
+  75% {
+    left: 0%;
+    top: 90%;
+  }
+  100% {
+    left: 0%;
+    top: 0%;
+  }
+}
+
+p {
+  position: relative;
+  font-size: 1.2em;
+  animation: textAnim 3s ease-out;
+}
+
+@keyframes textAnim {
+  from {
+    left: 100%;
+    width: 500%;
+  }
+  to {
+    left: 0%;
+    width: 100%;
+  }
+}
