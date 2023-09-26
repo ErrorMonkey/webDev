@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function ageCheck1(age) {
+        if (age >= 20) {
+          console.log("성인");
+        } else if (age >= 17) {
+          console.log("고등학생");
+        } else if (age >= 14) {
+          console.log("중학생");
+        } else if (age >= 8) {
+          console.log("초등학생");
+        } else console.log("유아");
+      }
+
+      function ageCheck2(age) {
+        const ages = [
+          { minAge: 20, ageName: "성인" },
+          { minAge: 17, ageName: "고등학생" },
+          { minAge: 14, ageName: "중학생" },
+          { minAge: 8, ageName: "초등학생" },
+          { minAge: 1, ageName: "유아" },
+        ];
+        const ageChecked = ages.find((el) => age >= el.minAge);
+        return age ? console.log(ageChecked.ageName) : console.log("유아");
+      }
+      ageCheck2(2);
+    </script>
+  </body>
+</html>

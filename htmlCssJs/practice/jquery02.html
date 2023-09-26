@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jquery_practice_02</title>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.js"
+      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      div.box {
+        width: 20em;
+        height: 20em;
+        cursor: pointer;
+        background-color: red;
+        transition: all 0.5s;
+      }
+      div.box:visited {
+        scale: 90%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div onclick="colorChange()" class="box"></div>
+    <script>
+      let colorIndex = 0;
+      const color = [
+        "red",
+        "orange",
+        "yellow",
+        "green",
+        "blue",
+        "navy",
+        "purple",
+      ];
+      function colorChange() {
+        if (colorIndex == 6) colorIndex = 0;
+        else colorIndex++;
+        $(".box").css("background-color", `${color[colorIndex]}`);
+      }
+    </script>
+  </body>
+</html>

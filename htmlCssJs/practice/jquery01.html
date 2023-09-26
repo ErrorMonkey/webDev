@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Change Fruits</title>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.js"
+      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 500px;
+        height: 500px;
+        background-color: rgb(143, 102, 132);
+      }
+      .btn {
+        border-radius: 25px;
+        width: 5em;
+        height: 3em;
+        color: whitesmoke;
+        background-color: rebeccapurple;
+      }
+      .fruit-img {
+        width: 300px;
+        object-fit: cover;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div>
+        <img class="fruit-img" src="../img/fruit.jpeg" alt="" />
+      </div>
+      <div class="btn-container fruits">
+        <button onclick="changeImage('apple')" class="btn apple-btn">
+          사과
+        </button>
+        <button onclick="changeImage('banana')" class="btn banana-btn">
+          바나나
+        </button>
+        <button onclick="changeImage('grape')" class="btn grape-btn">
+          포도
+        </button>
+        <button onclick="changeImage('peache')" class="btn peach-btn">
+          복숭아
+        </button>
+      </div>
+    </div>
+    <script>
+      function changeImage(fruit) {
+        $(".fruit-img").attr("src", `../img/${fruit}.jpeg`);
+      }
+    </script>
+  </body>
+</html>

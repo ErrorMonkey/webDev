@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS DOM</title>
+    <style>
+      .container {
+        width: 600px;
+        height: 400px;
+        background-color: beige;
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .box {
+        width: 100px;
+        height: 100px;
+      }
+
+      .red {
+        background-color: red;
+      }
+
+      .orange {
+        background-color: orange;
+      }
+
+      .yellow {
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box red"></div>
+      <div class="box orange"></div>
+      <div class="box yellow"></div>
+    </div>
+    <input type="text" name="name" />
+
+    <div>
+      <button type="button" onclick="twinkle()">반짝</button>
+      <button type="button" onclick="addPlaceholder()">placeholder 추가</button>
+      <button type="button" onclick="addBox()">box 추가</button>
+      <button type="button" onclick="removeBox()">box 삭제</button>
+    </div>
+
+    <script>
+      const boxes = document.querySelectorAll(".box");
+      // boxes는 현재 배열이라 아래 식으로는 선택할 수 없음
+      // boxes.innerHTML = "test";
+      boxes[0].innerHTML = "test box";
+      const box1 = boxes[0];
+
+      console.log(box1.classList);
+
+      function twinkle() {
+        box1.classList.toggle("red");
+        // if (box1.classList.contains("red")) box1.classList.remove("red");
+        // else box1.classList.add("red");
+      }
+
+      const input = document.querySelector("input");
+      function addPlaceholder() {
+        // setAttribute(name, value) 요소의 name 속성에 들어가는 value를 변경, 없으면 추가
+        input.setAttribute("placeholder", "이름을 입력하세요.");
+        input.setAttribute("id", "input_id");
+        console.log("input", input);
+      }
+      console.log("input", input);
+
+      // 특정 요소의 자식 요소에 접근
+      const container = document.querySelector(".container");
+      console.log("container", container.children); // children은 자식들을 배열로 반환, 인덱스로 접근 가능
+
+      // 특정 요소의 부모 요소에 접근
+      console.log(box1.parentNode); // parentNode는 기본적으로 하나의 요소만 반환
+
+      // 특정 요소의 형제 요소에 접근
+      console.log(box1.nextElementSibling); // 바로 다음 요소 하나만 반환
+      console.log(boxes[1].previousElementSibling);
+      console.log(boxes[1].nextSibling);
+      console.log(boxes[1].previousSibling);
+
+      function addBox() {
+        const container = document.querySelector(".container");
+        // container를 선택한다 추가할 요소를 만든다
+        const newBox = document.createElement("div");
+        // newBox.classList.add("box");
+        // newBox.classList.add("red");
+        newBox.className = "box red";
+
+        // 마지막 자식 요소 추가하기 append, appendChild
+        container.appendChild(newBox); // node 객체만 넘길 수 있음, 잔상이 남는다?
+        container.append("newBox"); // append는 문자열도 인자로 넘길 수 있음
+
+        // 첫 번째 자식 요소로 추가하기 prepend
+        container.prepend(newBox);
+
+        // 형제 요소로 추가하기 before, after
+        // container.before(newBox);
+        // container.after(newBox);
+      }
+
+      function removeBox() {
+        // 삭제 방법 1.
+        const orangeBox = document.querySelector(".box.orange");
+        orangeBox.remove();
+
+        // 삭제 방법 2
+        // const container = document.querySelector(".container");
+        // container.removeChild(container.children[1]);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>js_calc</title>
+  </head>
+  <body>
+    <form class="container">
+      <div>값 1: <input type="text" value="" id="x" /></div>
+      <div>값 2: <input type="text" id="y" /></div>
+      <div>연산자: <input type="text" id="operator" /></div>
+      <div>
+        결과 :
+        <input type="text" placeholder="" class="answer-input" readonly />
+      </div>
+      <button onclick="calc()">계산하기</button>
+      <!-- <button onclick="resetCalc()">초기화</button> -->
+      <input type="reset" value="초기화" />
+    </form>
+    <script>
+      function calc() {
+        const x = Number(document.getElementById("x").value);
+        const y = Number(document.getElementById("y").value);
+        const oper = document.getElementById("operator").value;
+        const answerInput = document.querySelector(".answer-input");
+        let answer = 0;
+
+        switch (oper) {
+          case "+":
+            answer = x + y;
+            break;
+          case "-":
+            answer = x - y;
+            break;
+          case "*":
+            answer = x * y;
+            break;
+          case "/":
+            answer = x / y;
+            break;
+        }
+
+        // if (oper == "+") {
+        //   answer = x + y;
+        // } else if (oper == "-") {
+        //   answer = x - y;
+        // } else if (oper == "*") {
+        //   answer = x * y;
+        // } else if (oper == "/") {
+        //   answer = x / y;
+        // }
+
+        // answerInput.setAttribute("placeholder", answer);
+        answerInput.value = answer;
+      }
+
+      function resetCalc() {
+        document.getElementById("x").value = "";
+        document.getElementById("y").value = "";
+        document.getElementById("operator").value = "";
+        document.querySelector(".answer-input").value = "";
+      }
+    </script>
+  </body>
+</html>

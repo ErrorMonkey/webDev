@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>js_guestBook</title>
+    <style>
+      table {
+        width: 500px;
+        border: 1px solid black;
+      }
+      td {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      작성자: <input type="text" name="writer" /> 내용:
+      <input type="text" name="content" />
+      <button onclick="writeGuestbook()">작성</button>
+    </div>
+    <table class="guest-table" border="1" cellspacing="2">
+      <tbody>
+        <tr>
+          <th>번호</th>
+          <th>작성자</th>
+          <th>내용</th>
+          <th>작성일</th>
+        </tr>
+      </tbody>
+    </table>
+    <script>
+      // let index = 1;
+      function writeGuestbook() {
+        // input 2개 값 가져오기
+        // 번호, 작성일 데이터 만들기
+        // tr태그를 만들고, td태그 4개 만들어서 tr 태그에 추가
+        // tbody태그의 자식 요소로 tr태그를 추가
+        const writer = document.querySelector("[name=writer]").value;
+        const content = document.querySelector("[name=content]").value;
+        const date = new Date();
+        const dateString = `${date.getFullYear()}-${
+          date.getMonth() + 1
+        }-${date.getDate()}`;
+
+        const table = document.querySelector(".guest-table");
+        let tbody = document.createElement("tbody");
+        let tr = document.createElement("tr");
+
+        let td1 = document.createElement("td");
+        // td1.innerHTML = tbody.children.length + 1;
+        tr.append(td1);
+
+        let td2 = document.createElement("td");
+        td2.innerHTML = writer;
+        tr.append(td2);
+
+        let td3 = document.createElement("td");
+        td3.innerHTML = content;
+        tr.append(td3);
+
+        let td4 = document.createElement("td");
+        td4.innerHTML = dateString;
+        tr.append(td4);
+
+        tbody.append(tr);
+
+        // index++;
+      }
+    </script>
+  </body>
+</html>

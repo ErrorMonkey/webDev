@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery</title>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
+      integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8="
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      .container {
+        width: 600px;
+        height: 400px;
+        background-color: beige;
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .box {
+        width: 100px;
+        height: 100px;
+      }
+
+      .red {
+        background-color: red;
+      }
+
+      .orange {
+        background-color: orange;
+      }
+
+      .yellow {
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box red" id="red"></div>
+      <div class="box orange"></div>
+      <div class="box yellow"></div>
+    </div>
+    <input type="text" name="name" id="input" />
+    <button type="button" onclick="useVal()">val() 사용하기</button>
+
+    <br />
+    <div class="container2">
+      <span id="span1">hello</span>
+      <button type="button" onclick="useCss()">css() 사용하기</button>
+      <button type="button" onclick="useText()">text() 사용하기</button>
+    </div>
+
+    <div class="container3">
+      <button onclick="useAppend()">append() 사용하기</button>
+      <button onclick="useRemove()">remove() 사용하기</button>
+      <button onclick="useParent()">요소 탐색하기</button>
+      <button onclick="controlCss()">클래스 조작하기</button>
+    </div>
+    <script>
+      // $("선택자").동작함수();
+      // document.get~~ / document.querySelector~~
+      // .innerHTML / .append()
+
+      function useVal() {
+        // DOM API와 달리 모두 선택해서 적용해버린다.
+        // id가 input인 태그를 선택하여, 그 input의 value를 가져오는 코드
+        const value = $("#input").val();
+        // 위 아래는 같은 코드
+        // document.getElementById("input").value
+        console.log("value", value);
+
+        // id가 input인 태그를 선택하여 그 value를 설정하는 코드
+        $("#input").val("설정하고 싶은 값");
+      }
+
+      function useCss() {
+        const span = $("#span1");
+        span.css("font-size", "30px");
+        $("#span1").css("color", "blue");
+
+        // js코드라면?
+        // const span = document.getElementById("span1");
+        // span.style = "font-size: 30px; color: blue;"
+      }
+
+      function useAttr() {
+        $("#input").attr("placeholder", "이름을 입력해주세요.");
+        //js: setAttributes()
+      }
+
+      function useText() {
+        // innerText
+        $("#span1").text("hello world");
+
+        // 텍스트만 들어가는 게 아니라 tag도 추가 가능
+        $("#span1").html("hellooo world");
+        $("#span1").html("<b>hellooo world</b>");
+      }
+
+      // 자주 쓰임!!
+      function useAppend() {
+        // const container = document.querySelector(".container");
+        // const newBox = document.createElement("div");
+        // newBox.className = "box red";
+        // container.append(newBox)
+        // 제이쿼리가 이렇게 편합니다~
+
+        // .container의 마지막 자식으로 추가
+        $(".container").append(`<div class="box red"></div>`);
+
+        // .container의 첫번째 자식으로 추가
+        $(".container").prepend(`<div class="box red"></div>`);
+
+        // .container의 앞 형제로 추가
+        $(".container").before(`<div class="box red"></div>`);
+
+        // .container의 뒤 형제로 추가
+        $(".container").after(`<div class="box red"></div>`);
+      }
+
+      function useRemove() {
+        $(".box.orange").remove();
+
+        // const container = document.querySelector(".container");
+        // container.innerHTML = "";
+        // 위와 같은 코드
+        $(".container").empty();
+      }
+
+      function useParent() {
+        // parent()
+        console.log("parent", $(".box.red").parent());
+        // parents()
+        console.log("parents", $(".box.red").parents());
+        console.log("next", $(".box.orange").next());
+        console.log("prev", $(".box.orange").prev());
+        console.log("children", $(".container3").children());
+      }
+
+      // 자주 쓰임!!!!
+      function controlCss() {
+        const redBox = $("#red");
+        // if (redBox.hasClass("red")) redBox.removeClass("red");
+        // else redBox.addClass("red");
+
+        redBox.toggleClass("red");
+
+        // $("#red").removeClass("red");
+        // $(".box.red").addClass("");
+      }
+    </script>
+  </body>
+</html>
