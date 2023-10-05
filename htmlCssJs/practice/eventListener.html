@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>calendar</title>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
+      integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8="
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1em;
+      }
+      table {
+        border: 1px solid black;
+        width: 49em;
+        height: 20em;
+        text-align: center;
+      }
+      tr td {
+        width: 7em;
+        height: 5em;
+      }
+      tr td:nth-child(1) {
+        color: crimson;
+      }
+      tr td:nth-last-child(1) {
+        color: royalblue;
+      }
+      tr td:hover {
+        scale: 110%;
+        font-weight: 700;
+      }
+      body {
+        display: flex;
+      }
+    </style>
+  </head>
+  <body>
+    <container class="input">
+      <div>날짜: <input type="number" name="day" id="day" /></div>
+      <div>내용: <input type="text" name="content" id="content" /></div>
+      <button>작성</button>
+    </container>
+    <container class="calendar">
+      <h1>2022년 6월</h1>
+      <table>
+        <tr>
+          <td>일</td>
+          <td>월</td>
+          <td>화</td>
+          <td>수</td>
+          <td>목</td>
+          <td>금</td>
+          <td>토</td>
+        </tr>
+        <tr class="date">
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>1</td>
+          <td>2</td>
+        </tr>
+        <tr class="date">
+          <td>3</td>
+          <td>4</td>
+          <td>5</td>
+          <td>6</td>
+          <td>7</td>
+          <td>8</td>
+          <td>9</td>
+        </tr>
+        <tr class="date">
+          <td>10</td>
+          <td>11</td>
+          <td>12</td>
+          <td>13</td>
+          <td>14</td>
+          <td>15</td>
+          <td>16</td>
+        </tr>
+        <tr class="date">
+          <td>17</td>
+          <td>18</td>
+          <td>19</td>
+          <td>20</td>
+          <td>21</td>
+          <td>22</td>
+          <td>23</td>
+        </tr>
+      </table>
+    </container>
+    <script>
+      let selectDay = "";
+      $("tr.date td").on("click", function () {
+        if ($("tr.day td").text != "") {
+          $("#day").val($(this).text());
+          // console.log($(this).text());
+          selectDay = this;
+          // 깊은 복사가 안 된다. 얕은 복사로 참조하는 형태라 수정 가능.
+        }
+        console.log(selectDay);
+      });
+
+      $("button").on("click", function () {
+        // console.log($("#day").val());
+        $(selectDay).html(
+          `${$("#day").val()}
+          <div>${$("#content").val()}</div>`
+        );
+      });
+    </script>
+  </body>
+</html>

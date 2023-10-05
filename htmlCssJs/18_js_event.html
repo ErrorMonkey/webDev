@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이벤트 리스너</title>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
+      integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      // 아래 코드는 container 클래스를 가진 div 태그가 로드되기 전에 실행을 하게 됨.
+      console.log($(".container"));
+
+      // 로딩 이벤트: html, body 태그 내부까지 로드된 후 실행할 코드 걸어준다.
+      $(document).ready(function () {
+        // 핸들러(handler)
+        // body가 로드된 후 실행시키고 싶은 코드
+        console.log($(".container"));
+      });
+
+      // jQuery 3.0 이상부터 권장되는 방식
+      $(function () {
+        // body가 로드된 후 실행시키고 싶은 코드
+        console.log($(".container"));
+      });
+    </script>
+    <style>
+      .container {
+        background-color: cadetblue;
+        width: 200px;
+        height: 200px;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 로딩 이벤트: html이 로드된 실행할 코드를 걸어준다. -->
+    <div class="container"></div>
+
+    <div class="container"></div>
+
+    <input type="password" name="pw" />
+
+    <script>
+      $(".container").click(function () {
+        // event가 걸린 요소를 this에 담음.
+        $(this).css("background-color", "red");
+        // 화살표 함수의 this는 선언된 위치에서 부모 요소를 가르키기 때문에 화살표 함수와 this를 사용할 수 없다.
+      });
+
+      $(".container").hover(
+        (event) => {
+          // this 대신 event.target을 사용할 수 있음
+          $(event.target).css("background-color", "blue");
+        },
+        (event) => {
+          $(event.target).css("background-color", "cadetblue");
+        }
+      );
+
+      // 선택 요소에 마우스가 올라갔을 때 실행시키고 싶은 코드
+      $(".container").mouseover(function () {});
+      // 선택 요소에 마우스가 나갔을 때 실행시키고 싶은 코드
+      $(".container").mouseout(function () {});
+      // hover: mouseover와 mouseout을 한 번에 지정
+      $(".container").hover(
+        function () {
+          // 마우스가 들어갔을 때
+        },
+        function () {
+          // 마우스가 나갔을 때
+        }
+      );
+
+      $(document).scroll(function () {
+        // 스크롤이 바닥을 도달했을 때
+
+        if ($(document).height() - $(window).height() == $(window).scrollTop) {
+          // 하고싶은 동작
+          console.log("hello");
+        }
+        // console.log(document.body.clientHeight);
+        console.log(document.body.scrollHeight);
+      });
+
+      // keydown: 선택한 요소에서 키보드를 누르는 이벤트가 발생할 경우
+      // keyup: 선택한 요소에서 키보드를 떼는 이벤트가 발생할 경우
+      // $("input[name=pw]").keyup(function (event) {
+      //   console.log("key: ", event.key);
+      //   if (event.key == "Enter") console.log("value: ", this.value);
+      // });
+
+      // on: 이벤트를 걸겠다. (이벤트 자체는 미정)
+      $("input[name=pw]").on("keyup", function (event) {
+        if (event.key == "Enter") console.log("value: ", this.value);
+      });
+
+      const container = document.getElementsByClassName("container");
+
+      // jQuery의 on과 비슷. on과 다르게 선택한 요소 하나만 다룰 수 있다.
+      for (let i = 0; i < container.length; i++) {
+        container[i].addEventListener("click", function () {
+          this.style.backgroundColor = "yellow";
+        });
+      }
+    </script>
+  </body>
+</html>

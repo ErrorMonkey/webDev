@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://kit.fontawesome.com/837ff3adc1.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      :root {
+        --nav-height-lg: 100px;
+        --nav-height-sm: 60px;
+      }
+
+      body {
+        margin: 0;
+      }
+
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      /* HEADER */
+      header {
+        width: 100%;
+        height: var(--nav-height-lg);
+        z-index: 100;
+        position: fixed;
+        background-color: lightblue;
+      }
+
+      /* 768px 보다 클때의 header */
+
+      header .inner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+      }
+
+      /* LOGO */
+      header .inner .logo {
+        color: white;
+        font-size: 30px;
+        position: absolute;
+        left: 5em;
+      }
+
+      header .inner .menu {
+        display: flex;
+        gap: 1em;
+        font-weight: 700;
+      }
+
+      header .inner .menu li {
+        background-color: rgba(0, 0, 0, 0);
+      }
+
+      /* 미디어 쿼리 작성 768px 이하일 때  */
+      @media screen and (max-width: 768px) {
+        header .inner {
+          flex-direction: column;
+          /* gap: 1em; */
+          height: initial;
+          /* height: 100%; */
+        }
+        header .inner .logo {
+          display: flex;
+          align-items: center;
+          position: static;
+          height: var(--nav-height-sm);
+          /* transform: translateY(20%); */
+        }
+        header .inner .menu {
+          /* position: absolute; */
+          /* top: var(--nav-height-lg); */
+
+          gap: 0;
+          width: 100%;
+          flex-direction: column;
+        }
+        header .inner .menu li {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 2.5em;
+          font-weight: 500;
+          width: 100%;
+          background-color: rgb(222, 230, 248);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="inner">
+        <div class="logo">
+          <i class="fa-solid fa-igloo"></i>
+        </div>
+        <ul class="menu">
+          <li>메뉴1</li>
+          <li>메뉴2</li>
+          <li>메뉴3</li>
+          <li>메뉴4</li>
+        </ul>
+      </div>
+    </header>
+  </body>
+</html>

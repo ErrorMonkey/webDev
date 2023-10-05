@@ -1,0 +1,47 @@
+.container {
+  width: 500px;
+  height: 500px;
+  background-color: beige;
+  transition: all 0.5s;
+  display: flex;
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+}
+
+.red {
+  background-color: crimson;
+}
+
+.orange {
+  background-color: darkorange;
+}
+
+.yellow {
+  background-color: greenyellow;
+}
+
+/* @medai 미디어유형 and (크기 규칙) */
+
+@media print {
+  .container {
+    background-color: royalblue;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  /* 700px 이상일 경우 */
+  .container {
+    background-color: royalblue;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  /* 700px 이하일 경우 */
+  .container {
+    background-color: gainsboro;
+    flex-direction: column;
+  }
+}

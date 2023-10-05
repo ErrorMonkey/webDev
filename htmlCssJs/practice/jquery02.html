@@ -17,7 +17,7 @@
         background-color: red;
         transition: all 0.5s;
       }
-      div.box:visited {
+      div.box:active {
         scale: 90%;
       }
     </style>
@@ -25,6 +25,7 @@
 
   <body>
     <div onclick="colorChange()" class="box"></div>
+    <div class="box anim test"></div>
     <script>
       let colorIndex = 0;
       const color = [
