@@ -29,17 +29,17 @@
         width: 100%;
         height: var(--nav-height-lg);
         z-index: 100;
-        position: fixed;
-        background-color: lightblue;
+        /* position: fixed; */
       }
 
       /* 768px 보다 클때의 header */
-
       header .inner {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        position: relative;
+        background-color: lightblue;
         height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
       /* LOGO */
@@ -47,50 +47,45 @@
         color: white;
         font-size: 30px;
         position: absolute;
-        left: 5em;
+        left: 50px;
       }
 
       header .inner .menu {
         display: flex;
-        gap: 1em;
-        font-weight: 700;
       }
 
       header .inner .menu li {
-        background-color: rgba(0, 0, 0, 0);
+        margin: 0 15px;
+        font-weight: 800;
+        cursor: pointer;
       }
 
       /* 미디어 쿼리 작성 768px 이하일 때  */
       @media screen and (max-width: 768px) {
-        header .inner {
-          flex-direction: column;
-          /* gap: 1em; */
-          height: initial;
-          /* height: 100%; */
-        }
-        header .inner .logo {
-          display: flex;
-          align-items: center;
-          position: static;
+        header {
           height: var(--nav-height-sm);
-          /* transform: translateY(20%); */
         }
-        header .inner .menu {
-          /* position: absolute; */
-          /* top: var(--nav-height-lg); */
 
-          gap: 0;
-          width: 100%;
-          flex-direction: column;
+        header .inner .menu {
+          display: block;
+          text-align: center;
+          background-color: aliceblue;
         }
+
+        header .inner {
+          display: block;
+        }
+
+        header .inner .logo {
+          position: static;
+          height: 100%;
+          /* i 태그는 인라인 요소라 라인 헤이트 속성을 줄 수 있다. */
+          line-height: var(--nav-height-sm);
+          text-align: center;
+        }
+
         header .inner .menu li {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          height: 2.5em;
-          font-weight: 500;
-          width: 100%;
-          background-color: rgb(222, 230, 248);
+          padding: 10px;
         }
       }
     </style>
@@ -109,10 +104,5 @@
         </ul>
       </div>
     </header>
-    <script>
-      $(".logo").click(() => {
-        $(".menu").toggle();
-      });
-    </script>
   </body>
 </html>

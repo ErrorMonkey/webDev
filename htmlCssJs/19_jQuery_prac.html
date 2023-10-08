@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
+      integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8="
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      table {
+        width: 90%;
+        height: 10em;
+        text-align: center;
+        vertical-align: top;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" name="date" />
+    <input type="text" name="todo" />
+    <button type="button" onclick="addSchedule()">작성</button>
+    <table>
+      <tr>
+        <th>월</th>
+        <th>화</th>
+        <th>수</th>
+        <th>목</th>
+        <th>금</th>
+        <th>토</th>
+        <th>일</th>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+      </tr>
+    </table>
+
+    <script>
+      let dateEl;
+
+      $("td").on("click", function () {
+        // console.log(this);
+        const date = $(this).text();
+        dateEl = this;
+        $("input[name=date]").val(date);
+        console.log("dateEl", dateEl);
+      });
+
+      // $("button").on("click", addSchedule());
+
+      const addSchedule = () => {
+        const todo = $("input[name=todo]").val();
+        $(dateEl).append(`<div>${todo}</div>`);
+      };
+    </script>
+  </body>
+</html>

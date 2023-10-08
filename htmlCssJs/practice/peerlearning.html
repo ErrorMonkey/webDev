@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>peertest</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <style>
+      header {
+        height: 100px;
+        background-color: royalblue;
+      }
+      body {
+        margin: 0;
+      }
+      .main-container {
+        margin-top: 2em;
+        display: flex;
+        justify-content: center;
+        gap: 1em;
+      }
+
+      .user-container {
+        display: flex;
+        gap: 1em;
+        justify-content: center;
+      }
+
+      .hide {
+        display: none;
+      }
+
+      @media screen and (max-width: 1000px) {
+        .main-container {
+          margin-top: 1em;
+          flex-direction: column;
+          gap: 0.5em;
+        }
+        header {
+          height: 60px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header></header>
+
+    <div class="main-container">
+      <div class="list-group">
+        <a
+          href="#"
+          class="forVideo list-group-item list-group-item-action active"
+          aria-current="true"
+        >
+          영상 모음
+        </a>
+        <a href="#" class="forDev list-group-item list-group-item-action"
+          >개발 관련 모음</a
+        >
+        <a href="#" class="list-group-item list-group-item-action"
+          >잡다한 것들</a
+        >
+      </div>
+
+      <div class="contents-container">
+        <div class="tuto forVideo">
+          <div id="carouselExample" class="carousel slide">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <iframe
+                  width="560"
+                  height="315"
+                  src="https://www.youtube.com/embed/wxRLlr-FU_0?si=E7Q9QqiMZlV4Re57"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                ></iframe>
+              </div>
+              <div class="carousel-item">
+                <iframe
+                  width="560"
+                  height="315"
+                  src="https://www.youtube.com/embed/0czNfM_kRQE?si=OV9mrpfBoSaBsS-c"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                ></iframe>
+              </div>
+              <div class="carousel-item">
+                <iframe
+                  width="560"
+                  height="315"
+                  src="https://www.youtube.com/embed/zTnC63LORrI?si=rI1asdaEnucC4pRF"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </div>
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#carouselExample"
+              data-bs-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselExample"
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="tuto forDev hide">
+          <div id="carouselExample" class="carousel slide">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <iframe
+                  width="560"
+                  height="315"
+                  src="https://www.youtube.com/embed/D-fqNyTV3b8?si=vEw0AUTHrpH36x-4"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                ></iframe>
+              </div>
+              <div class="carousel-item">
+                <iframe
+                  width="560"
+                  height="315"
+                  src="https://www.youtube.com/embed/zTnC63LORrI?si=rI1asdaEnucC4pRF"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </div>
+
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#carouselExample"
+              data-bs-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselExample"
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+
+        <div
+          class="progress"
+          role="progressbar"
+          aria-label="Animated striped example"
+          aria-valuenow="75"
+          aria-valuemin="0"
+          aria-valuemax="100"
+        >
+          <div
+            class="progress-bar progress-bar-striped progress-bar-animated"
+            style="width: 75%"
+          ></div>
+        </div>
+      </div>
+
+      <aside class="user-help-containgr">
+        <div class="user-container">
+          <div class="card text-bg-dark" style="width: 10rem">
+            <img
+              src="https://images.unsplash.com/photo-1689720358443-d63af51382d1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80"
+              class="card-img"
+              alt="..."
+            />
+            <div class="card-img-overlay">
+              <h5 class="card-title">김개발</h5>
+              <p class="card-text">주60시간 근무 자발적 사축</p>
+            </div>
+          </div>
+          <div class="card text-bg-dark" style="width: 10rem">
+            <img
+              src="https://images.unsplash.com/photo-1696082599816-b27d48ac3480?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80"
+              class="card-img"
+              alt="..."
+            />
+            <div class="card-img-overlay">
+              <h5 class="card-title">이코딩</h5>
+              <p class="card-text">칼퇴바람</p>
+            </div>
+          </div>
+        </div>
+        <button type="button" class="btn btn-outline-primary">
+          도움이 필요하신가요?
+        </button>
+      </aside>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.js"
+      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $("a").on("click", menuSelect);
+      function menuSelect() {
+        $("a").removeClass("active");
+        $(this).addClass("active");
+        tutoActive(this);
+      }
+
+      function tutoActive(arg) {
+        $("div.tuto").addClass("hide");
+        console.log(arg);
+        if ($(arg).hasClass("forVideo")) {
+          $("div.tuto.forVideo").removeClass("hide");
+        }
+        if ($(arg).hasClass("forDev")) {
+          $("div.tuto.forDev").removeClass("hide");
+        }
+      }
+    </script>
+  </body>
+</html>
