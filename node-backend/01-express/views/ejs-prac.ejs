@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    h1 {
+      width: 100px;
+      height: 100px;
+      background-color: rebeccapurple;
+    }
+  </style>
+  <body>
+    <%=name %>
+
+    <%-include("header.ejs") %>
+
+    <!-- ejs 태그 안에 오는 js 코드는 한 줄로 끝나야 함. -->
+    <% for (let i=1; i <= product.length; i++) { %>
+    <!-- ejs 태그 안에 바로 =이 오면 = 뒤에 있는 변수나 값을 html로 보여준다. -->
+    <div>상품 <%=i %>: <%=product[i-1] %></div>
+    <%}%>
+    <%="hello ejs!"%>
+
+    <!-- ejs 태그 안에 바로 -이 오면 - 뒤에 있는 변수나 값을 html로 보여준다.(html 태그를 인식함) -->
+    <%="<h1>안녕?</h1>" %>
+    <%-"<h1>안녕??</h1>" %>
+
+    <%-include("index.ejs") %>
+
+    <script>
+      // 백엔드 ejs안에서 쓴 변수는 ejs 안에서만 사용 가능. 아래 오류 뜸
+      // console.log(product); 
+    </script>
+  </body>
+</html>
