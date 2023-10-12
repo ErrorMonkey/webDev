@@ -44,6 +44,7 @@ console.log("name2", name2);
 console.log("name", name);
 console.log("obj", obj);
 console.log(" ");
+
 // 스프레드 연산자
 const arr1 = [1, 2, 3, 4, 5];
 const arr2 = ["a", "b", "c", "d", "e"];
