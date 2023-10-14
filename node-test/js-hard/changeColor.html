@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      body {
+        transition: all .5s;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      function changeColor(color) {
+        return new Promise((res) => {
+          setTimeout(function() {
+            document.body.style.backgroundColor = color;
+            // console.log(color);
+            res();
+          }, 1000);
+        });
+      };
+
+      changeColor("red")
+        .then(() => {
+          return changeColor("orange");
+        })
+        .then(() => {
+          return changeColor("yellow");
+        })
+        .then(() => {
+          return changeColor("green");
+        })
+        .then(() => {
+          return changeColor("blue");
+        });
+
+      // async function exec() {
+      //   await changeColor("red");
+      //   await changeColor("orange");
+      //   await changeColor("yellow");
+      //   await changeColor("green");
+      //   await changeColor("blue");
+      // }
+      // exec();
+    </script>
+  </body>
+</html>
