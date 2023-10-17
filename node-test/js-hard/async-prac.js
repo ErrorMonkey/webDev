@@ -98,26 +98,26 @@ changeColorPrac = () => {
   };
 
   changeColor("red")
-    .then(() => {
-      return changeColor("orange");
-    })
-    .then(() => {
-      return changeColor("yellow");
-    })
-    .then(() => {
-      return changeColor("green");
-    })
-    .then(() => {
-      return changeColor("blue");
-    });
+        .then(() => {
+          return changeColor("orange");
+        })
+        .then(() => {
+          return changeColor("yellow");
+        })
+        .then(() => {
+          return changeColor("green");
+        })
+        .then(() => {
+          return changeColor("blue");
+        });
 
-  async function exec() {
-    await changeColor("red");
-    await changeColor("orange");
-    await changeColor("yellow");
-    await changeColor("green");
-    await changeColor("blue");
-  }
-  // exec();
+      async function exec() {
+        await changeColor("red");
+        await changeColor("orange");
+        await changeColor("yellow");
+        await changeColor("green");
+        await changeColor("blue");
+      }
+      // exec();
 };
 changeColorPrac();
