@@ -1,3 +1,4 @@
 # /의 위치에 따라서 무시할 영역이 정해짐
 node_modules/
 package-lock.json
+uploads/
