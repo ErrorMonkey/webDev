@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>axios 연습</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <!-- 아래는 axios 코드 -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+  </head>
+  <body>
+    <form name="login-form">
+      <label for="id">ID</label><input type="text" name="id" id="id" />
+      <label for="pw">PW</label><input type="password" name="pw" id="pw" />
+      <button type="button" onclick="loginPrac()">로그인</button>
+    </form>
+    <h3 id="login-result"></h3>
+
+    <script>
+      async function loginPrac() {
+        const forms = document.forms["login-form"];
+        const data = {
+          id: forms.id.value,
+          pw: forms.pw.value,
+        }
+
+        const res = await axios({
+          method: "POST",
+          url: "/login",
+          data: data
+        })
+        const loginResult = res.data;
+        let loginColor = loginResult.result ? "blue" : "red";
+
+        if (loginResult.result) {
+          $("#login-result").css('color', loginColor)
+            .html(`${loginResult.userName}님 환영합니다.`)
+        } else {
+          $("#login-result").css('color', loginColor)
+            .html(`아이디 또는 비밀번호를 잘못 입력했습니다.`)
+        }
+      }
+    </script>
+  </body>
+</html>
