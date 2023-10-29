@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MVC 연습</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <!-- 아래는 axios 코드 -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <h1>MVC 회원가입</h1>
+    <form action="/get" method="get" name="register-form">
+      <fieldset>
+        <label for="userId">ID</label><input type="text" name="userId" id="userId" required />
+        <label for="userPw">PW</label><input type="password" name="userPw" id="userPw" required />
+        <label for="userName">이름</label><input type="text" name="userName" id="userName" required />
+      </fieldset>
+      <button type="button" onclick="signup()">회원가입</button>
+    </form>
+    <h3 id="signupData"></h3>
+
+    <form name="login-form">
+      <label for="loginId">ID</label><input type="text" name="loginId" id="loginId" />
+      <label for="loginPw">PW</label><input type="password" name="loginPw" id="loginPw" />
+      <button type="button" onclick="login()">로그인</button>
+    </form>
+    <h3 id="login-result"></h3>
+
+    <script>
+      const signup = () => {
+        const forms = document.forms["register-form"];
+        const data = {
+          userId: forms.userId.value,
+          userPw: forms.userPw.value,
+          userName: forms.userName.value,
+        }
+        console.log(data)
+        axios({
+          method: "POST",
+          url: "/signup",
+          data: data
+        }).then((res) => {
+          console.log(res);
+        })
+      }
+
+      const login = async () => {
+        const forms = document.forms["login-form"];
+        const data = {
+          id: forms.loginId.value,
+          pw: forms.loginPw.value,
+        }
+
+        await axios({
+          method: "POST",
+          url: "/login",
+          data: data
+        }).then((res) => {
+          const el = document.querySelector("#login-result");
+          if (res.data.loginResult) {
+            $("#login-result").css("color", "blue")
+              .html(`${res.data.userName}님 로그인 성공!`)
+          } else {
+            $("#login-result").css("color", "red")
+              .html(`로그인 실패.`)
+          }
+        })
+      }
+    </script>
+  </body>
+</html>
