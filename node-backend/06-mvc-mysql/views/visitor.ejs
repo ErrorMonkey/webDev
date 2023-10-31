@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>방명록</title>
+    <style>
+      table {
+        width: 500px;
+      }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <section>
+      <form name="form-visitor">
+        <fieldset>
+          <legend>방명록 등록</legend>
+          <input type="text" name="username" />
+          <br />
+          <input type="text" name="comment" />
+          <br />
+          <button type="button" onclick="addVisitor()">등록</button>
+        </fieldset>
+      </form>
+      <div>
+        <table border="1" cellspacing="0">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>작성자</th>
+              <th>방명록</th>
+              <th>수정</th>
+              <th>삭제</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for(let i=0; i <data.length; i++){ %>
+            <tr>
+              <th><%= data[i].id %></th>
+              <th><%= data[i].username %></th>
+              <th><%= data[i].comment %></th>
+              <th><button type="button" onclick="updateVisitor(`<%= data[i].id%>`, this.parentElement.parentElement)">수정</button></th>
+              <th><button type="button" onclick="deleteVisitor(`<%= data[i].id%>`, this.parentElement.parentElement)">삭제</button></th>
+            </tr>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <script>
+      function addVisitor() {
+        // 서버에 보낼 데이터를 만들어야 함
+        const forms = document.forms["form-visitor"]
+        const data = {
+          username: forms.username.value,
+          comment: forms.comment.value
+        }
+
+        // axios를 이용해 데이터를 서버에 전송
+        axios({
+          method: "post",
+          url: "/visitor",
+          data: data
+        }).then((res) => {
+          // axios 응답을 받으면, table에 동적으로 행 추가  
+          const {
+            id,
+            username,
+            comment,
+          } = res.data
+
+          $("tbody").append(`<tr>
+            <td>${id}</td>
+            <td>${username}</td>
+            <td>${comment}</td>
+            <th><button type="button" onclick="updateVisitor(${id}, this.parentElement.parentElement)">수정</button></th>
+              <th><button type="button" onclick="deleteVisitor(${id}, this.parentElement.parentElement)">삭제</button></th>
+            </tr>`)
+        });
+      }
+
+      function deleteVisitor(id, TrElement) {
+        // 삭제할 ID가 필요
+        axios({
+          method: "delete",
+          url: `/visitor/${id}`,
+        }).then((res) => {
+          console.log('delete res.data', res.data)
+          // 삭제할 tr 태그가 필요함
+          if (res.data.result) {
+            $(TrElement).remove();
+          } else {
+            altert("존재하지 않는 방명록입니다.")
+          }
+        })
+      }
+    </script>
+  </body>
+</html>

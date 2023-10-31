@@ -23,8 +23,6 @@ desc user;
 
 
 
-
-
 show databases;
 
 -- 데이터 베이스 생성하는 명령어
@@ -64,6 +62,8 @@ insert into user (id, password) values ('lily', '1234');
 select id from user;
 
 
--- 참조하고 있는 데이터가 삭제되면 자동으로 삭제하겠다는
+-- 참조하고 있는 데이터가 삭제되면 자동으로 삭제하겠다는 명령어
 
 foreign key (custid) reference customer(custid) on delete cascade
+
+

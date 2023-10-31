@@ -9,4 +9,5 @@
   "js-beautify.indent_inner_html": true,
   "js-beautify.indent_handlebars ": false,
   "js-beautify.wrap_attributes_indent_size": 2,
+  "liveServer.settings.port": 5501,
 }
