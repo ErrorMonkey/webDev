@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> -->
+    <link rel="stylesheet" href="../static/css/style.css">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <!-- axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: sans-serif;
+      }
+
+      body#background {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: url("../static/img/pattern1.png") no-repeat;
+        background-size: cover;
+        background-position: center;
+      }
+
+      .wrapper-form {
+        width: 420px;
+        background-color: whitesmoke;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 0 18px rgba(0, 0, 0, .3);
+        color: #333;
+        border-radius: 10px;
+        padding: 30px 40px;
+      }
+
+      .wrapper-form h1 {
+        font-size: 2.5em;
+        text-align: center;
+      }
+
+      .wrapper-form .input-box {
+        position: relative;
+        width: 100%;
+        height: 50px;
+        margin: 15px 0;
+      }
+
+      .input-box input {
+        width: 100%;
+        height: 100%;
+        outline: none;
+        background-color: rgba(255, 255, 255, 1);
+        border: 1px solid #0066ff;
+        border-radius: 40px;
+        font-size: 16px;
+        color: #333;
+        padding: 20px 45px 20px 20px;
+      }
+
+      .input-box input:focus {
+        background-color: rgba(255, 255, 255, 1);
+      }
+
+      .input-box input::placeholder {
+        color: #333;
+      }
+
+      .input-box i {
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 20px;
+        color: #333;
+      }
+
+      .wrapper-form button {
+        width: 100%;
+        height: 45px;
+        background-color: #fff;
+        border: none;
+        outline: none;
+        border-radius: 40px;
+        box-shadow: 0 0 12px rgba(0, 0, 0, .1);
+        border: 1px solid #0066ff;
+        cursor: pointer;
+        font-size: 16px;
+        color: #333;
+        font-weight: 600;
+      }
+
+      .wrapper-form button:hover {
+        background-color: #0066ff;
+        color: #fff;
+        transition: all .3s;
+      }
+
+      .wrapper-form button:active {
+        color: #dddddd;
+        background-color: #1b5ec1;
+        box-shadow: 0 0 9px #0066ff;
+        scale: 97%;
+        transition: all .3s;
+      }
+
+      .home-link a {
+        color: #333;
+        text-decoration: none;
+      }
+
+      .home-link a:hover {
+        text-decoration: underline;
+        font-weight: 600;
+      }
+
+      .wrapper-form form .submit-boxes {
+        display: flex;
+        gap: 1em;
+      }
+    </style>
+  </head>
+
+  <body id="background">
+    <div class="wrapper-form">
+      <form action="" name="profile-form">
+        <h1>Profile</h1>
+        <div class="input-box">
+          <input type="text" name="id" value="<%= data.id %>" readonly />
+          <i class="bx bxs-user"></i>
+        </div>
+        <div class="input-box">
+          <input type="text" placeholder="User ID" name="userId" value="<%= data.userid %>" required />
+          <i class="bx bxs-user"></i>
+        </div>
+        <div class="input-box">
+          <input type="password" placeholder="Password" name="userPw" value="" required />
+          <i class="bx bxs-lock-alt"></i>
+        </div>
+        <div class="input-box">
+          <input type="text" placeholder="User Name" name="userName" value="<%= data.name %>" required />
+          <i class="bi bi-person-vcard-fill"></i>
+        </div>
+
+        <div class="submit-boxes">
+          <div class="input-box">
+            <button type="button" onclick="userEdit()">수정</button>
+          </div>
+          <div class="input-box">
+            <button type="button" onclick="userDel()">삭제</button>
+          </div>
+        </div>
+
+        <div class="home-link"><a href="/">홈으로 돌아가기</a></div>
+    </div>
+    </form>
+    </div>
+    <p id="alert"></p>
+    <script>
+      userEdit = () => {
+        const forms = document.forms["profile-form"];
+        const user = {
+          // id: forms.id.value, // id는 params로 정보를 넘길 예정
+          editId: forms.userId.value,
+          editPw: forms.userPw.value,
+          editName: forms.userName.value
+        }
+        axios({
+          method: "patch",
+          url: `/edit/${forms.id.value}`,
+          data: user
+        }).then((res) => {
+          console.log('res', res)
+          if (res.data.result) {
+            alert("회원정보 수정 성공")
+          } else {
+            alert("문제가 발생했습니다")
+          }
+        })
+      }
+
+      userDel = () => {
+        const forms = document.forms["profile-form"];
+
+        axios({
+          method: "delete",
+          url: `/delete/${forms.id.value}`,
+        }).then(({
+          data
+        }) => {
+          if (data.result) {
+            alert("회원 탈퇴 완료");
+            location.href = "/login";
+          }
+        })
+      }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  </body>
+</html>

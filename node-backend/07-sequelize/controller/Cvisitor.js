@@ -27,7 +27,7 @@ exports.postVisitor = async (req, res) => {
     username: req.body.username,
     comment: req.body.comment,
   };
-  // 시퀄라이저는 프로미스 객체를 반환해서 then 사용 가능
+  // 시퀄라이저는 프로미스 객체를 반환해서 async 사용 가능
   // Visitor.create(data)
   //   .then((result) => {
   //     console.log("result", result);
