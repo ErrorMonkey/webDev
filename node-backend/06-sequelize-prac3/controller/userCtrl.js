@@ -3,19 +3,6 @@ const { User } = require("../model");
 const express = require("express");
 const router = express.Router();
 
-const app = express();
-const session = require("express-session");
-app.use(
-  session({
-    secret: "secret key",
-    resave: false,
-    saveUninitialized: true,
-    cookie: {
-      maxAge: 30000,
-    },
-  })
-);
-
 exports.home = (req, res) => {
   res.render("/");
 };
@@ -30,8 +17,6 @@ exports.login = (req, res) => {
     // console.log("findOne: ", result.id);
     if (result !== null) {
       // console.log("result", result);
-      req.session.PK = result.id;
-      req.session.userName = result.userName;
       res.send({ id: result.id, loginResult: true, userName: result.name });
     } else {
       res.send({ loginResult: false });
