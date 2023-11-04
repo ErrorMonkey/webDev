@@ -9,6 +9,7 @@ exports.getPlayers = async (req, res) => {
   try {
     const players = await Player.findAll({
       // attributes: ["name"],
+      where: {}
     });
     res.json(players);
   } catch (error) {
