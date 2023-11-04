@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/static/css/style.css">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <!-- axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </head>
+
+  <body id="background">
+    <div class="wrapper-form">
+      <form name="login-form" action="/user" method="get">
+        <input name="id" style="visibility: hidden;" />
+        <h1>Login</h1>
+        <div class="input-box">
+          <input type="text" placeholder="User ID" name="loginId" required />
+          <i class="bx bxs-user"></i>
+        </div>
+        <div class="input-box">
+          <input type="password" placeholder="Password" name="loginPw" required />
+          <i class="bx bxs-lock-alt"></i>
+        </div>
+
+        <div class="input-box">
+          <button type="button" onclick="login()">Login</button>
+        </div>
+
+        <div class="remember-forget">
+          <label><input type="checkbox">ID 기억하기</label>
+          <a href="#">비밀번호 찾기</a>
+        </div>
+        <div class="register-link">
+          <p>아직 계정이 없으신가요?
+            <a href="/register">회원가입</a>
+          </p>
+        </div>
+      </form>
+    </div>
+    <p id="alert"></p>
+    <script>
+      const login = () => {
+        // api 명세서
+        // POST /user/login {userid, pw} 응답: {result(boolean), id?}
+        let forms = document.forms["login-form"];
+        const user = {
+          loginId: forms.loginId.value,
+          loginPw: forms.loginPw.value
+        }
+
+        axios({
+          method: "post",
+          url: "/login",
+          data: user
+        }).then((result) => {
+          // console.log('login result: ', result.data.loginResult)
+          const el = document.querySelector("#alert");
+          if (result.data.loginResult == false) {
+            $("#alert").html(`아이디 또는 비밀번호가 잘못 됐습니다.`).css("color", "#333");
+          }
+          console.log('result', result)
+          if (result.data.loginResult == true) {
+            forms.id.value = result.data.id;
+            el.innerHTML = "";
+            Swal.fire({
+              position: 'top',
+              icon: 'success',
+              title: `로그인 성공!`,
+              showConfirmButton: false,
+              timer: 1500
+            }).then((res) => {
+              // forms.submit();
+              location.href = "/user";
+            })
+
+            // $("#alert").html(`${result.data.userName}님 로그인 성공!`).css("color", "#fff");
+          }
+        })
+      }
+    </script>
+  </body>
+</html>

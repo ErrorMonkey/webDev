@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/static/css/style.css">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <!-- axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+
+  <body id="background">
+    <div class="wrapper-form">
+      <form name="login-form" action="/user" method="post">
+        <h1>Home</h1>
+
+        <div class="input-box">
+          <button type="button" onclick="login()">Login</button>
+        </div>
+
+        <div class="input-box">
+          <button type="button" onclick="signup()">Sign Up</button>
+        </div>
+
+      </form>
+    </div>
+    <script>
+      login = () => {
+        location.href = "/login"
+      }
+      signup = () => {
+        location.href = "/register"
+      }
+    </script>
+  </body>
+</html>
