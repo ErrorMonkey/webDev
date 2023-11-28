@@ -1,0 +1,86 @@
+* {
+  /* font-size: 1.2em; */
+  /* overflow: auto; */
+  margin: 0;
+}
+
+/* BEM 네이밍 규칙 */
+.Section__section {
+  margin-bottom: 20px;
+  border: 2px solid royalblue;
+}
+.Section__title {
+  color: darkred;
+}
+
+.test-css {
+  background-color: royalblue;
+  font-size: 30px;
+}
+
+.PracProps__wrapper {
+  display: flex;
+  font-size: 1.2em;
+}
+.PracProps__wrapper p {
+  display: inline-block;
+  margin: 0;
+}
+.PracProps__food {
+  color: red;
+}
+
+.PracProps2__wrapper {
+  display: flex;
+  margin: 0;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  background-color: ivory;
+  box-shadow: 0 0 10px #333;
+  padding: 15px;
+  gap: 0.5em;
+}
+.PracProps2__wrapper h1 {
+  color: darkorange;
+}
+.PracProps2__wrapper > img {
+  width: 100px;
+  height: 150px;
+  background-color: blueviolet;
+}
+.PracProps2__wrapper > div {
+  width: 250px;
+  align-items: flex-start;
+}
+
+.PracPops3__btn {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2em;
+  padding: 10px;
+  /* width: 100px; */
+  /* height: 50px; */
+}
+
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.input-wrapper p {
+  display: inline-block;
+  margin: 10px 0;
+  text-align: center;
+  width: 100%;
+  font-size: 3em;
+  background-color: bisque;
+}
+.input-wrapper input div {
+  width: 500px;
+}
+.input-wrapper input {
+  margin: 10px 0;
+}
