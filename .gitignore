@@ -1,1 +1,4 @@
 /sesac_note
+.DS_Store
+package-lock.json
+.gitignore

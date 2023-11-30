@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+  <body>
+
+    <script>
+      const obj1 = {
+        name: "hello",
+        a: function() {
+          console.log("함수 선언문", this.name)
+        }
+      }
+      const obj2 = {
+        name: "obj2",
+        // 정적 바인딩
+        b: {
+          name: "world",
+          func: () => {
+            console.log("함수 표현식", this)
+          }
+        }
+      }
+
+      obj1.a();
+      obj2.b.func();
+    </script>
+  </body>
+</html>
