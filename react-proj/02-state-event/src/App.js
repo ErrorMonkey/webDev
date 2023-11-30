@@ -16,13 +16,13 @@ function App() {
       {/* <StateClass></StateClass>
       <StateFunc></StateFunc>
       <Prac01ClassState></Prac01ClassState>
-      <Prac02FuncState />
+      <Prac02FuncState /> */}
       <EventClass></EventClass>
-      <EventFunc></EventFunc> */}
+      {/* <EventFunc></EventFunc>
       <Prac03></Prac03>
       <Prac04></Prac04>
       <Prac05></Prac05>
-      <Prac06></Prac06>
+      <Prac06></Prac06> */}
     </>
   );
 }

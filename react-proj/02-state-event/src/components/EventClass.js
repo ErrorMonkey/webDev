@@ -48,6 +48,9 @@ class EventClass extends Component {
             <button
               className="inline-block rounded px-6 pb-2 pt-2.5 leading-normal shadow-[0_4px_9px_-4px_#333] text-white text-xs bg-emerald-500 hover:bg-emerald-600"
               onClick={this.handleOnClick}
+              // onClick={() => {
+              //   console.log(this);
+              // }}
             >
               hello
             </button>

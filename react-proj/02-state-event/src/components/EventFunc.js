@@ -48,7 +48,7 @@ function EventFunc() {
             {/* binde의 첫 번째 매개변수는 체이닝하는 함수의 this를 결정한다 */}
             <button
               className="bg-gradient-to-r from-stone-400 to-red-500 p-2 rounded-md"
-              onClick={handleOnclickTest.bind(this, "안녕")}
+              onClick={handleOnclickTest.bind(null, "안녕")}
             >
               test
             </button>
@@ -60,7 +60,7 @@ function EventFunc() {
               onChange={(e) => {
                 setName(e.target.value);
               }}
-              onKeyDown={handleEnter.bind(this, name)}
+              onKeyDown={handleEnter.bind(null, name)}
             />
           </div>
         </div>
