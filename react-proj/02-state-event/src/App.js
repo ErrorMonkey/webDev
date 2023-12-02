@@ -9,6 +9,7 @@ import Prac03 from "./components/Prac03";
 import Prac04 from "./components/Prac04";
 import Prac05 from "./components/Prac05";
 import Prac06 from "./components/Prac06";
+import Prac06_byLily from "./components/Prac06_byLily";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
       <Prac04></Prac04>
       <Prac05></Prac05>
       <Prac06></Prac06> */}
+      <Prac06_byLily />
     </>
   );
 }
