@@ -1,0 +1,26 @@
+.post-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.post-box {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(152, 213, 237);
+  width: 40em;
+  border-radius: 1em;
+  padding: 1.5em;
+  margin-top: 1em;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+}
+.title {
+  color: royalblue;
+  display: flex;
+  gap: 0.5em;
+  font-weight: 300;
+  margin-bottom: 0.5em;
+}
+.title p {
+  font-weight: 600;
+}

@@ -1,0 +1,27 @@
+.origin {
+  display: flex;
+}
+
+.origin .box {
+  width: 100px;
+  height: 100px;
+}
+
+.origin .r {
+  background-color: crimson;
+}
+.origin .o {
+  background-color: darkorange;
+}
+.origin .y {
+  background-color: lime;
+}
+.origin .g {
+  background-color: yellowgreen;
+}
+.origin .b {
+  background-color: royalblue;
+}
+.origin .p {
+  background-color: rebeccapurple;
+}
