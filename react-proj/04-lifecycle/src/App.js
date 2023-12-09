@@ -1,6 +1,7 @@
 import "./App.css";
 // import { Button } from "tailwind/react";
 import { useState } from "react";
+import "./App.scss";
 
 import LifeCycleClass from "./components/LifeCycleClass";
 import LifeCycleFunc from "./components/LifeCycleFunc";

@@ -1,0 +1,42 @@
+@mixin move($id, $pos) {
+  animation: circle-move#{$id} 2s linear infinite;
+  @keyframes circle-move#{$id} {
+    0% {
+      transform: translate(0px, 0px);
+    }
+    25% {
+      transform: translate($pos, 0px);
+    }
+    50% {
+      transform: translate($pos, $pos);
+    }
+    75% {
+      transform: translate(0px, $pos);
+    }
+    100% {
+      transform: translate(0px, 0px);
+    }
+  }
+}
+
+div {
+  border-radius: 10px;
+  width: 50px;
+  height: 50px;
+
+  &.pink-circle {
+    @include move(1, 30px);
+    background-color: pink;
+  }
+  
+  &.yellow-circle {
+    @include move(2, 60px);
+    background-color: yellow;
+  }
+
+  &.green-circle {
+    @include move(3, 90px);
+    background-color: green;
+  }
+
+}

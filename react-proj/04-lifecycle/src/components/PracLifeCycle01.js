@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import PostList from "./PostList";
 import GetPostList from "./GetPostList";
+// import "../App.scss";
 
 function PracLifeCycle01() {
   const [isActive, setIsActive] = useState(true);

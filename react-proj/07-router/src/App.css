@@ -1,0 +1,32 @@
+:root {
+  --height-header: 80px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.Header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  height: var(--height-header);
+  width: 100%;
+  background-color: rgb(207, 155, 255);
+  padding: 0 20px;
+}
+
+.Header > nav {
+  display: flex;
+}
+
+.Header > nav > div {
+  margin-left: 15px;
+}
+
+.box {
+  display: block;
+  height: 80px;
+  width: 100%;
+}

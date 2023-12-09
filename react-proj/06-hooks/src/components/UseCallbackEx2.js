@@ -14,7 +14,7 @@ function UseCallbackEx2({ postId }) {
   }, [postId]);
   // useCallback의 의존성 배열은 비우고 useEffect의 의존성 배열에 postId를 사용하면,
   // text 같은 다른 state에 변경 사항이 생기면 useCallback 선언을 해도
-  // 다시 함수를 선언하게 된다
+  // 다시 함수를 선언하게 된다s
 
   useEffect(() => {
     fetchData();

@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+}
+
+$main-bgColor: rgb(212, 229, 236);
+$main-color: royalblue;
+.post-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  & .post-box {
+    display: flex;
+    flex-direction: column;
+    background-color: $main-bgColor;
+    width: 70%;
+    border-radius: 1em;
+    padding: 1.5em;
+    margin-top: 1em;
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+    & .title {
+      color: $main-color;
+      display: flex;
+      gap: 0.5em;
+      font-weight: 300;
+      margin-bottom: 0.5em;
+    }
+    & .title p {
+      font-weight: 600;
+    }  
+  }
+}
