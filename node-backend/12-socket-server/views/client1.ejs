@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Socket</title>
+    <script src="/socket.io/socket.io.js"></script>
+  </head>
+  <body>
+    <h3>Socket 연습</h3>
+    <input id="msg" type="text" />
+    <button onclick="hello()">hello</button>
+    <button onclick="entry()">entry</button>
+    <button onclick="pracEmit()">실습</button>
+
+
+
+    <script>
+      const socket = io();
+      // 소켓을 이용해 데이터를 전송하는 함수: emit
+      // 소켓을 이용해 데이터를 수신하는 함수: on
+
+      function hello() {
+        const msg = document.querySelector('#msg')
+        console.log('msg.value: ', msg.value)
+
+        // (전송할 이벤트 이름 [, 전송할 데이터])
+        // 전송할 데이터의 형태는 자유롭게 (문자열, 숫자, 객체)
+        socket.emit('hello', {
+          msg: '안녕하세요~'
+        })
+      }
+
+      socket.on('bye', (res) => {
+        console.log('res: ', res)
+      })
+
+      function entry() {
+        socket.emit('entry')
+      }
+
+      socket.on('notice', (res) => {
+        console.log('entry res: ', res)
+      })
+
+      function pracEmit() {
+        const msg = document.querySelector('#msg').value;
+        socket.emit('pracEmit', msg)
+      }
+
+      socket.on('pracRes', (res) => {
+        let h3 = document.querySelector('h3');
+        h3.innerHTML = res.msg
+      })
+    </script>
+  </body>
+</html>
