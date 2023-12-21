@@ -9,6 +9,7 @@ const socket = io.connect('http://localhost:8000', { autoConnect: false });
 function Chatting2() {
   const [useridInput, setUseridInput] = useState('');
   const [msgInput, setMsgInput] = useState('');
+  const [userId, setUserId] = useState(null);
   const [chatList, setChatList] = useState([
     {
       type: 'my',
@@ -27,11 +28,11 @@ function Chatting2() {
       content: '님 신고',
     },
   ]);
-  const [userId, setuserId] = useState(null);
 
   const initSocketConnect = () => {
     if (!socket.connected) socket.connect();
   };
+
   useEffect(() => {
     // initSocketConnect();
   }, []);
@@ -48,19 +49,21 @@ function Chatting2() {
     return () => socket.off('notice', notice);
   }, [chatList]);
 
-  const sendMsg = () => {};
+  const sendMsg = () => {
+    socket.emit('sendMsg', { id: userId, msg: msgInput });
+  };
 
   const entryChat = () => {
     initSocketConnect();
     socket.emit('entry', { userId: useridInput });
     // [실습 3-2] 바로 userId에 값을 할당하지 않고 예외처리
   };
-  socket.on('error', (res) => errorAlert(res.msg));
-  socket.on('succes', (res) => setuserId(res.userId));
 
-  const errorAlert = (msg) => {
-    alert(msg);
-  };
+  // 이벤트라 useEffect 밖에서는 계속 실행되는 건가?
+  useEffect(() => {
+    socket.on('error', (res) => alert(res.msg));
+    socket.on('entrySucces', (res) => setUserId(res.userId));
+  }, []);
 
   return (
     <>

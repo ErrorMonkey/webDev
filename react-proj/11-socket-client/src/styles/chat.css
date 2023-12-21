@@ -1,9 +1,9 @@
-.chat-container {
+/* .chat-container {
   width: 320px;
   min-height: 500px;
   background-color: rgb(201, 201, 201);
   padding: 1em 1em;
-}
+} */
 
 .chat-container .notice {
   font-size: 0.9em;
@@ -34,11 +34,11 @@
   background-color: whitesmoke;
 }
 
-.input-container {
+/* .input-container {
   width: 320px;
   display: flex;
   justify-content: space-between;
-}
-.input-container > input {
+} */
+/* .input-container > input {
   flex-grow: 1;
-}
+} */
