@@ -6,12 +6,12 @@ import io from 'socket.io-client';
 
 const socket = io.connect('http://localhost:8000', { autoConnect: false });
 
-function Chatting3() {
+function Chatting4() {
   const [useridInput, setUseridInput] = useState('');
   const [msgInput, setMsgInput] = useState('');
   const [userId, setUserId] = useState(null);
   const [chatList, setChatList] = useState([]);
-  const [userList, setuserList] = useState([]);
+  const [userList, setUserList] = useState([]);
   const [dmTo, setDmTo] = useState('all');
   const [roomId, setRoomId] = useState('frontEnd');
 
@@ -27,7 +27,7 @@ function Chatting3() {
 
   const sendMsg = () => {
     if (msgInput !== '') {
-      socket.emit('sendMsg', { userId: userId, msg: msgInput, dm: dmTo });
+      socket.emit('sendMsg', { userId: userId, msg: msgInput, dm: dmTo, roomId: roomId });
       setMsgInput('');
     }
   };
@@ -36,7 +36,8 @@ function Chatting3() {
   useEffect(() => {
     socket.on('error', (res) => alert(res.msg));
     socket.on('entrySucces', (res) => setUserId(res.userId));
-    socket.on('userList', (userIdArr) => setuserList(userIdArr));
+    socket.on('userList', (userIdArr) => setUserList(userIdArr));
+    console.log('userList', userList);
   }, []);
 
   // useMemo: 값을 메모라이징 한다.
@@ -49,7 +50,7 @@ function Chatting3() {
       if (userList[key] === useridInput) continue;
       options.push(
         <option key={key} value={key}>
-          {userList[key]}
+          {userList[key].userId}
         </option>
       );
     }
@@ -182,4 +183,4 @@ function Chatting3() {
   );
 }
 
-export default Chatting3;
+export default Chatting4;

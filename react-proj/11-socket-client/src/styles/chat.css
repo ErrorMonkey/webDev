@@ -17,7 +17,7 @@
 .list > .content {
   display: inline-block;
   padding: 0.5em 1em;
-  border-radius: 1em;
+  /* border-radius: 1em; */
 }
 
 .chat-container .my-chat {
@@ -25,6 +25,10 @@
 }
 .chat-container .my-chat .content {
   background-color: greenyellow;
+  border-end-start-radius: 1rem;
+  border-start-start-radius: 1rem;
+  /* border-start-end-radius: 1rem */
+  border-end-end-radius: 1rem;
 }
 
 .chat-container .other-chat {
@@ -32,6 +36,10 @@
 }
 .chat-container .other-chat .content {
   background-color: whitesmoke;
+  border-end-start-radius: 1rem;
+  /* border-start-start-radius: 1rem; */
+  border-start-end-radius: 1rem;
+  border-end-end-radius: 1rem;
 }
 
 /* .input-container {
